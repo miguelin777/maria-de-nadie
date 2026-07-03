@@ -66,6 +66,8 @@
       outline: 2px solid currentColor;
       outline-offset: 3px;
     }
+    /* Enlace activo del nav (scrollspy) */
+    #main-header a.nav-active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
     /* Respeta la preferencia de movimiento reducido del usuario */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -810,7 +812,7 @@
 <section id="siguenos" class="bg-brand-primary text-white py-20 md:py-28 px-6">
     <div class="max-w-3xl mx-auto text-center" data-animation-on-scroll="">
         <span class="text-[10px] md:text-xs tracking-editorial text-white/60 block mb-6">SÍGUENOS EN REDES</span>
-        <a href="https://instagram.com/mariadenadie.cortazar" target="_blank" rel="noopener" aria-label="Instagram de María de Nadie" class="inline-block font-primary text-3xl md:text-5xl transition hover:text-white/70">@mariadenadie.cortazar</a>
+        <a href="https://instagram.com/mariadenadie.cortazar" target="_blank" rel="noopener" aria-label="Instagram de María de Nadie" class="inline-block font-primary text-xl sm:text-3xl md:text-4xl lg:text-5xl break-words max-w-full transition hover:text-white/70">@mariadenadie.cortazar</a>
         <p class="text-white/70 font-light tracking-wide mt-6 md:mt-8 max-w-xl mx-auto">Fotos de nuestros platillos recién hechos, promociones y las noches de música en vivo. Etiquétanos y sé parte de la casa.</p>
         <div class="flex items-center justify-center gap-5 mt-10">
             <a href="https://instagram.com/mariadenadie.cortazar" target="_blank" rel="noopener" aria-label="Síguenos en Instagram" class="w-12 h-12 flex items-center justify-center rounded-full border border-white/25 text-white transition hover:bg-white hover:text-brand-primary">
@@ -1177,6 +1179,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.open('https://wa.me/5214612281908?text=' + msg, '_blank', 'noopener');
                     newsletterForm.reset();
                 });
+            }
+
+            // Scrollspy: resalta el enlace del nav de la sección visible
+            const spyIds = ['especialidades','menu','galeria','resenas','ubicacion'];
+            const spyLinks = spyIds.map(id => ({ id, el: document.querySelector('#main-header a[href="#' + id + '"]') })).filter(x => x.el);
+            if (spyLinks.length && 'IntersectionObserver' in window) {
+                const spyObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            spyLinks.forEach(n => n.el.classList.toggle('nav-active', n.id === entry.target.id));
+                        }
+                    });
+                }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+                spyIds.forEach(id => { const sec = document.getElementById(id); if (sec) spyObserver.observe(sec); });
             }
         });
     </script>
