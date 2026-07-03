@@ -59,7 +59,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>html{scroll-behavior:smooth;scroll-padding-top:96px;}</style>
+  <style>
+    html{scroll-behavior:smooth;scroll-padding-top:96px;}
+    /* Foco visible para navegación con teclado (sin afectar al mouse) */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+    /* Respeta la preferencia de movimiento reducido del usuario */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .animate-on-scroll-hidden { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
 
 <style type="text/tailwindcss">@tailwind base;
 @tailwind components;
