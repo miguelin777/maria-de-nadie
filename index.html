@@ -27,6 +27,7 @@
     "priceRange": "$$",
     "url": "https://miguelin777.github.io/maria-de-nadie/",
     "telephone": "+524111554289",
+    "email": "mariacortazardenadie@hotmail.com",
     "image": "https://images.pexels.com/photos/37215005/pexels-photo-37215005.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "acceptsReservations": "True",
     "address": {
@@ -939,24 +940,24 @@
         <form class="space-y-12" id="reservation-form" data-animation-on-scroll="">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="group border-b border-brand-primary/20 pb-4 transition-colors duration-300 focus-within:border-brand-primary">
-                    <label class="flex items-center gap-2 text-[10px] tracking-editorial text-brand-secondary mb-3 uppercase font-bold transition-colors duration-300 group-focus-within:text-brand-primary">
+                    <label for="res-nombre" class="flex items-center gap-2 text-[10px] tracking-editorial text-brand-secondary mb-3 uppercase font-bold transition-colors duration-300 group-focus-within:text-brand-primary">
                         <i class="fas fa-user text-[9px] opacity-60"></i> Nombre
                     </label>
-                    <input type="text" required="" class="w-full bg-transparent border-none p-0 text-sm md:text-base tracking-widest text-brand-primary focus:ring-0 placeholder:text-gray-300" placeholder="Tu nombre completo">
+                    <input id="res-nombre" type="text" required="" class="w-full bg-transparent border-none p-0 text-sm md:text-base tracking-widest text-brand-primary focus:ring-0 placeholder:text-gray-300" placeholder="Tu nombre completo">
                 </div>
                 <div class="group border-b border-brand-primary/20 pb-4 transition-colors duration-300 focus-within:border-brand-primary">
-                    <label class="flex items-center gap-2 text-[10px] tracking-editorial text-brand-secondary mb-3 uppercase font-bold transition-colors duration-300 group-focus-within:text-brand-primary">
+                    <label for="res-telefono" class="flex items-center gap-2 text-[10px] tracking-editorial text-brand-secondary mb-3 uppercase font-bold transition-colors duration-300 group-focus-within:text-brand-primary">
                         <i class="fas fa-phone text-[9px] opacity-60"></i> Teléfono
                     </label>
-                    <input type="tel" required="" class="w-full bg-transparent border-none p-0 text-sm md:text-base tracking-widest text-brand-primary focus:ring-0 placeholder:text-gray-300" placeholder="411 155 4289">
+                    <input id="res-telefono" type="tel" required="" class="w-full bg-transparent border-none p-0 text-sm md:text-base tracking-widest text-brand-primary focus:ring-0 placeholder:text-gray-300" placeholder="411 155 4289">
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="group border-b border-brand-primary/20 pb-4 transition-colors duration-300 focus-within:border-brand-primary">
-                    <label class="flex items-center gap-2 text-[10px] tracking-editorial text-brand-secondary mb-3 uppercase font-bold transition-colors duration-300 group-focus-within:text-brand-primary">
+                    <label for="res-personas" class="flex items-center gap-2 text-[10px] tracking-editorial text-brand-secondary mb-3 uppercase font-bold transition-colors duration-300 group-focus-within:text-brand-primary">
                         <i class="fas fa-users text-[9px] opacity-60"></i> Número de personas
                     </label>
-                    <select class="w-full bg-transparent border-none p-0 text-sm md:text-base tracking-widest text-brand-primary focus:ring-0 uppercase cursor-pointer">
+                    <select id="res-personas" class="w-full bg-transparent border-none p-0 text-sm md:text-base tracking-widest text-brand-primary focus:ring-0 uppercase cursor-pointer">
                         <option>2 Personas</option>
                         <option>4 Personas</option>
                         <option>6 Personas</option>
@@ -964,10 +965,10 @@
                     </select>
                 </div>
                 <div class="group border-b border-brand-primary/20 pb-4 transition-colors duration-300 focus-within:border-brand-primary">
-                    <label class="flex items-center gap-2 text-[10px] tracking-editorial text-brand-secondary mb-3 uppercase font-bold transition-colors duration-300 group-focus-within:text-brand-primary">
+                    <label for="res-fecha" class="flex items-center gap-2 text-[10px] tracking-editorial text-brand-secondary mb-3 uppercase font-bold transition-colors duration-300 group-focus-within:text-brand-primary">
                         <i class="fas fa-calendar text-[9px] opacity-60"></i> Fecha y hora
                     </label>
-                    <input type="datetime-local" required="" class="w-full bg-transparent border-none p-0 text-sm md:text-base tracking-widest text-brand-primary focus:ring-0 uppercase">
+                    <input id="res-fecha" type="datetime-local" required="" class="w-full bg-transparent border-none p-0 text-sm md:text-base tracking-widest text-brand-primary focus:ring-0 uppercase">
                 </div>
             </div>
             <p class="text-center text-[11px] tracking-widest text-brand-secondary leading-relaxed max-w-md mx-auto">
@@ -1044,12 +1045,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="space-y-6">
                         <h4 class="text-xs uppercase tracking-editorial font-bold">Boletín</h4>
                         <p class="text-sm tracking-widest leading-relaxed opacity-60">Suscríbete y entérate de las promociones y la música en vivo.</p>
-                        <div class="border-b border-white/20 pb-2 flex justify-between items-center">
-                            <input type="email" placeholder="CORREO ELECTRÓNICO" class="bg-transparent border-none text-xs tracking-editorial focus:ring-0 placeholder:text-white/30 w-full">
-                            <button class="text-sm hover:translate-x-1 transition-transform">
+                        <form id="newsletter-form" class="border-b border-white/20 pb-2 flex justify-between items-center">
+                            <input id="newsletter-email" type="email" required="" aria-label="Correo electrónico" placeholder="CORREO ELECTRÓNICO" class="bg-transparent border-none text-xs tracking-editorial focus:ring-0 placeholder:text-white/30 w-full">
+                            <button type="submit" aria-label="Suscribirme al boletín" class="text-sm hover:translate-x-1 transition-transform">
                                 <i class="fas fa-arrow-right"></i>
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
@@ -1068,7 +1069,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
-                    <p class="text-xs tracking-editorial opacity-40 uppercase text-center order-last md:order-none">© 2025 María de Nadie. Todos los derechos reservados.</p>
+                    <p class="text-xs tracking-editorial opacity-40 uppercase text-center order-last md:order-none">© 2026 María de Nadie. Todos los derechos reservados.</p>
                     <a href="#inicio" class="group inline-flex items-center gap-2 text-[11px] uppercase tracking-editorial text-white/40 hover:text-white transition-colors duration-300">
                         Volver arriba
                         <span class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-brand-primary group-hover:border-white transition-colors duration-300">
@@ -1141,6 +1142,18 @@ document.addEventListener('DOMContentLoaded', () => {
             menuLinks.forEach(link => {
                 link.addEventListener('click', () => toggleMenu(false));
             });
+
+            // Boletín → WhatsApp (sin backend: manda la suscripción por WhatsApp)
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = (document.getElementById('newsletter-email').value || '').trim();
+                    const msg = encodeURIComponent('Hola, quiero recibir sus promociones y avisos de música en vivo. Mi correo es: ' + email);
+                    window.open('https://wa.me/5214612281908?text=' + msg, '_blank', 'noopener');
+                    newsletterForm.reset();
+                });
+            }
         });
     </script>
 
